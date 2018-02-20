@@ -3,5 +3,7 @@ Rails.application.routes.draw do
     resources :donations, only: [:create]
   end
   devise_for :users
-  root to: 'articles#index'
+  # resources :pages, only: [:show]
+  root to: 'pages#home'
+
 end

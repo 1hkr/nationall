@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="wrapper">
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_url "national_top.jpg" %>);">
+
+      <h1 class="title">NΔTIONΔLL</h1>
+
+      <h2 class="center">Discover Europe</h2>
+
+      <%= link_to "Read Articles", articles_path, class: "btn btn-success" %>
+  </div>
+
+  <br>
+
+  <h4 class="articles-header">Latest Articles</h4>
+    <% @articles.each do |article| %>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.picture %>);">
+           <img class=“card-user” src=“https://kitt.lewagon.com/placeholder/users/tgenaitay“>
+        </div>
+         <p> <%= article.category.upcase %></p>
+         <h5><%= link_to article.title, article_path(article) %></h5>
+         <p><%= truncate(article.subtitle, length: 40) %></p>
+         <p><%= article.publishing_date %></p>
+      </div>
+    <% end %>
+</div>
