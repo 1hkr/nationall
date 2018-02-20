@@ -1,1 +1,24 @@
-// Specific CSS for your home-page
+.wrapper {
+  height: auto;
+  width: auto;
+}
+
+.articles-header {
+  margin: 0;
+}
+
+.title {
+  margin: 0 auto;
+  font-size: 100px !important;
+  font-family: arial;
+  color: white;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.content {
+  margin: 0;
+}
+
+.links {
+  margin-top: 15px
+}
