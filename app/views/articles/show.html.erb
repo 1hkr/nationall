@@ -25,7 +25,10 @@
 
 <%= link_to "Back", root_path %>
 
-
+<% if policy(@article).edit? %>
     <%= link_to "Edit", edit_article_path(@article) %>
+<% end %>
 
+<% if policy(@article).destroy? %>
     <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>
