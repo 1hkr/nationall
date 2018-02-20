@@ -5,10 +5,23 @@
   <div class="col-md-8">
     <h5><%= @article.subtitle %></h5>
     <h5><%= @article.publishing_date %></h5>
-    <p><%=  @article.content %></p>
+    <p> <%= @article.summary %></p>
+    <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
+      <h3> Thank you for your donation, you can now read this article : </h3>
+        <p><%= @article.content %></p>
   </div>
 
 </div>
+
+<% else %>
+  <div>
+    <h3>Donation</h3>
+    <%= simple_form_for [@article, @donation] do |f| %>
+      <%= f.input :amount, placeholder: "0.10" %>
+      <%= f.submit "Donate" %>
+    <% end %>
+  </div>
+<% end %>
 
 <%= link_to "Back", root_path %>
 
