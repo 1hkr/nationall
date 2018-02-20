@@ -25,11 +25,10 @@
 
 <%= link_to "Back", root_path %>
 
-<% if user_signed_in? %>
-
-  <% if @article.user_id == current_user.id %>
+<% if policy(@article).edit? %>
     <%= link_to "Edit", edit_article_path(@article) %>
-    <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
-  <% end %>
+<% end %>
 
+<% if policy(@article).destroy? %>
+    <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
 <% end %>
