@@ -1,39 +1,44 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @article.picture %>);">
-
+<div class="article-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @article.picture %>);">
 </div>
-<p> <%= @article.category.upcase %></p>
-<h1><%= @article.title %></h1>
 
-<div class="row">
-
-  <div class="col-md-8">
-    <h5><%= @article.subtitle %></h5>
-    <h5><%= @article.publishing_date %></h5>
-    <p> <%= @article.summary %></p>
-    <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
-      <h3> Thank you for your donation, you can now read this article : </h3>
+<div class="row margin-left">
+  <div class="col-xs-7 col-md-7 col-sm-7">
+    <p> <%= @article.category.upcase %></p>
+    <h1><%= @article.title %></h1>
+        <h5><%= @article.subtitle %></h5>
+        <h5><%= @article.publishing_date %></h5>
+        <p> <%= @article.summary %></p>
+        <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
         <p><%= @article.content %></p>
+        <% end %>
   </div>
-
+  <div class="col-xs-5 col-md-5 col-sm-5">
+        <% if donation = Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
+          <h3>Donation</h3>
+          <p><%= donation.amount %>€</p>
+          <a href="#", class= "btn btn-success">Thank you <3</a>
+          <h3> Thank you for your donation ! </h3>
+        <% else %>
+          <div>
+            <h3>Donation</h3>
+            <%= simple_form_for [@article, @donation] do |f| %>
+            <%= f.input :amount, placeholder: "0.10" %>
+            <%= f.submit "Donate", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        <% end %>
+  </div>
 </div>
 
-<% else %>
-  <div>
-    <h3>Donation</h3>
-    <%= simple_form_for [@article, @donation] do |f| %>
-      <%= f.input :amount, placeholder: "0.10" %>
-      <%= f.submit "Donate" %>
-    <% end %>
-  </div>
-<% end %>
+    <%= link_to "Back", root_path %>
 
-<%= link_to "Back", root_path %>
+    <% if user_signed_in? %>
 
-<% if user_signed_in? %>
-
-  <% if @article.user_id == current_user.id %>
+    <% if @article.user_id == current_user.id %>
     <%= link_to "Edit", edit_article_path(@article) %>
     <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
-  <% end %>
+    <% end %>
 
-<% end %>
+    <% end %>
+
+
