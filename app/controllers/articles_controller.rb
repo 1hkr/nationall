@@ -2,11 +2,12 @@ class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = policy_scope(Article).order(created_at: :desc)
   end
 
   def show
-     @donation = Donation.new
+    @donation = Donation.new
+    authorize @donation
   end
 
   def new
