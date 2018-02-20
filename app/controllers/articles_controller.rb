@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :destroy]
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = policy_scope(Article).order(created_at: :desc)
@@ -12,11 +12,13 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    authorize @article
     if @article.save
       redirect_to articles_path, notice: 'Article was successfully created.'
     else
@@ -25,9 +27,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    authorize @article
   end
 
   def update
+    authorize @article
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else
@@ -38,6 +42,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    authorize @article
   end
 
   private
