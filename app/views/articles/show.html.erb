@@ -8,6 +8,7 @@
         <h5><%= @article.subtitle %></h5>
         <h5><%= @article.publishing_date %></h5>
         <p> <%= @article.summary %></p>
+        <img class="card-user" src=<%= current_user.picture %> >
         <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
         <p><%= @article.content %></p>
         <% end %>
