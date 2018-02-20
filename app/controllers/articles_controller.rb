@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+     @donation = Donation.new
   end
 
   private

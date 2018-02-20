@@ -20,3 +20,13 @@
   <% end %>
 
 <% end %>
+
+<% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
+  <p> Thank you for your donation</p>
+<% else %>
+  <%= simple_form_for [@article, @donation] do |f| %>
+    <%= f.input :amount %>
+    <%= f.submit "Add" %>
+  <% end %>
+
+<% end %>
