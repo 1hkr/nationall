@@ -5,7 +5,7 @@
         <% @articles.each do |article| %>
           <div class="col-xs-12 col-sm-6">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.picture %>);">
-              <img class="card-user" src=<%= current_user.picture %> >
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
             </div>
             <p> <%= article.category.upcase %></p>
             <h5><%= link_to article.title, article_path(article) %></h5>
