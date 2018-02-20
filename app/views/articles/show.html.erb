@@ -5,10 +5,22 @@
   <div class="col-md-8">
     <h5><%= @article.subtitle %></h5>
     <h5><%= @article.publishing_date %></h5>
-    <p><%=  @article.content %></p>
+    <p> <%= @article.summary %></p>
+    <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
+      <h3> Thank you for your donation, you can now read this article : </h3>
+        <p><%= @article.content %></p>
   </div>
 
 </div>
+
+<% else %>
+  <div>
+    <%= simple_form_for [@article, @donation] do |f| %>
+      <%= f.input :amount %>
+      <%= f.submit "Add" %>
+    <% end %>
+  </div>
+<% end %>
 
 <%= link_to "Back", root_path %>
 
@@ -17,16 +29,6 @@
   <% if @article.user_id == current_user.id %>
     <%= link_to "Edit", edit_article_path(@article) %>
     <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
-  <% end %>
-
-<% end %>
-
-<% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
-  <p> Thank you for your donation</p>
-<% else %>
-  <%= simple_form_for [@article, @donation] do |f| %>
-    <%= f.input :amount %>
-    <%= f.submit "Add" %>
   <% end %>
 
 <% end %>
