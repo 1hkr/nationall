@@ -1,17 +1,30 @@
-<h1>Articles</h1>
-
-<div class="conatiner">
-
-  <div class="row">
-
-    <% @articles.each do |article| %>
-      <div class="col-xs-12 col-md-3 col-md-offset-1 ">
-        <h4><%= link_to article.title, article_path(article) %></h4>
-        <h5>Subtitle: <%= article.subtitle %></h5>
-        <h5>Published: <%= article.publishing_date %></h5>
+  <div class="row margin-left">
+    <div class="col-xs-7 col-md-7 col-sm-7">
+    <h1 class="index-title">Articles</h1>
+      <div class="row">
+        <% @articles.each do |article| %>
+          <div class="col-xs-12 col-sm-6">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.picture %>);">
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            </div>
+            <p> <%= article.category.upcase %></p>
+            <h5><%= link_to article.title, article_path(article) %></h5>
+            <p><%= truncate(article.subtitle, length: 40) %></p>
+            <p><%= article.publishing_date %></p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
+    <div class="col-xs-5 col-md-5 col-sm-5">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+      >
+      </div>
+    </div>
 
   </div>
 
-</div>
