@@ -15,9 +15,10 @@
 
 <% else %>
   <div>
+    <h3>Donation</h3>
     <%= simple_form_for [@article, @donation] do |f| %>
-      <%= f.input :amount %>
-      <%= f.submit "Add" %>
+      <%= f.input :amount, placeholder: "0.10" %>
+      <%= f.submit "Donate" %>
     <% end %>
   </div>
 <% end %>
