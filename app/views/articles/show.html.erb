@@ -3,42 +3,70 @@
 
 <div class="row margin-left">
   <div class="col-xs-7 col-md-7 col-sm-7">
-    <p> <%= @article.category.upcase %></p>
-    <h1><%= @article.title %></h1>
-    <h5><%= @article.subtitle %></h5>
-    <h5><%= @article.publishing_date %></h5>
-    <p> <%= @article.summary %></p>
-    <img class="card-user" src=<%= @article.user.picture %> >
+    <div class="article-text margins">
+      <div class="article-details">
+        <p> <%= @article.category.upcase %></p>
+        <p class="top-right"><%= @article.publishing_date %></p>
+      </div>
+      <h1><%= @article.title %></h1>
+      <h5><%= @article.subtitle %></h5>
+      <h3>Summary</h3>
+      <p> <%= @article.summary %></p>
+
+      <div class="article-profile">
+        <div class="center">
+          <img class="card-user" src=<%= @article.user.picture %>>
+        </div>
+        <div class="user-details">
+          <div>
+            <p> <b><%= @article.user.first_name%> <%= @article.user.last_name %></b> </p>
+          </div>
+          <div>
+            <p class="grow"> <%= @article.user.address %></p>
+          </div>
+        </div>
+      </div>
+    </div>
     <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
-    <p><%= @article.content %></p>
+      <div class="article-content">
+        <h3>Full article</h3>
+        <p><%= @article.content %></p>
+      </div>
     <% end %>
+
+    <div class="buttons">
+      <%= link_to "Back", root_path, class: "btn-gray" %>
+    </div>
+
+    <div class="buttons">
+      <% if policy(@article).edit? %>
+        <%= link_to "Edit", edit_article_path(@article), class: "btn-gray" %>
+      <% end %>
+
+      <% if policy(@article).destroy? %>
+        <%= link_to "Delete", article_path(@article), class: "btn-gray", method: :delete, data: { confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+
   </div>
+
   <div class="col-xs-5 col-md-5 col-sm-5">
     <% if donation = Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
     <h3>Donation</h3>
     <p><%= donation.amount %>€</p>
-    <a href="#", class= "btn btn-success">Thank you <3</a>
-    <h3> Thank you for your donation ! </h3>
+    <a href="#", class= "btn-blue-empty">Donation done</a>
+    <h5> Thank you for your donation ! </h5>
     <% else %>
     <div>
       <h3>Donation</h3>
       <%= simple_form_for [@article, @donation] do |f| %>
       <%= f.input :amount, placeholder: "0.10" %>
-      <%= f.submit "Donate", class: "btn btn-primary" %>
+      <%= f.submit "Donate", class: "btn-blue" %>
       <% end %>
     </div>
     <% end %>
   </div>
 </div>
 
-<%= link_to "Back", root_path %>
 
-
-<% if policy(@article).edit? %>
-<%= link_to "Edit", edit_article_path(@article) %>
-<% end %>
-
-<% if policy(@article).destroy? %>
-<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %>
-<% end %>
 
