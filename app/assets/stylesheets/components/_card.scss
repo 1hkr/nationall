@@ -4,14 +4,63 @@
   background-size: cover !important;
   background-position: center;
   color: white;
-  position: relative;
+}
+
+.card-container {
+  margin-bottom: 30px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+
 }
 
 .card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
   width: 40px;
   border-radius: 50%;
 }
+
+.card-text {
+  position: relative;
+  padding: 2px 5px 10px 10px;
+  background: rgb(252,252,252);
+  &:hover {
+    background: rgb(254,254,254);
+  }
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
+.card-details {
+ font-size: 12px;
+}
+
+.card-titles {
+ margin-bottom: 20px;
+ p {
+  font-size: 14px;
+ }
+}
+
+ a {
+  text-color: #03359a;
+  &:hover {
+    text-decoration: none;
+   }
+}
+.card-profile {
+  display: flex;
+  font-size: 12px;
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    line-height: 8px;
+    margin-left: 10px;
+    .grow {
+      flex: 1 0 50px;
+    }
+  }
+}
+
 
