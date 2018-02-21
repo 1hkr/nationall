@@ -2,6 +2,13 @@ class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def index
+    @users = User.where.not(latitude: nil, longitude: nil)
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
     if params[:query].present?
       @articles = policy_scope(Article).where("title ILIKE ?", "%#{params[:query]}%")
     else
