@@ -3,6 +3,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = policy_scope(Article).order(created_at: :desc)
+    @user = User.where.not(latitude: nil, longitude: nil)
+
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   def show
