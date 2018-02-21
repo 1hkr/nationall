@@ -4,6 +4,14 @@
     <%= image_tag "logo_blue.png", height: 50 %>
   <% end %>
 
+  <%= form_tag articles_path, method: :get, class: "navbar-wagon-search" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an article"
+  %>
+<% end %>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -17,12 +25,6 @@
         <div class="dropdown">
           <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to new_article_path do %>
-                <i class="fa fa-plus"></i> <%= t(".add", default: "Add Article") %>
-              <% end %>
-            </li>
-            </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
