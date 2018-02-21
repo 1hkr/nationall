@@ -16,32 +16,36 @@ p 'creating users'
   last_name: 'Ribas Sanchez',
   email: 'anna@nationall.eu',
   password: 'password',
-  city: 'Andorra',
-  bio: 'Becoming a journalist in @UPFBarcelona. Specialized in Politics. Working for Nationall. Collaborations in @elpuntavui, @beteve, @VilaWeb i @beteve91fm.'
+  address: 'Andorra',
+  bio: 'Becoming a journalist in @UPFBarcelona. Specialized in Politics. Working for Nationall. Collaborations in @elpuntavui, @beteve, @VilaWeb i @beteve91fm.',
+  picture: 'https://kitt.lewagon.com/placeholder/users/1'
   },
   {
   first_name: 'Adam',
   last_name: 'Smith',
   email: 'adam@nationall.eu',
   password: 'password',
-  city: 'Southampton',
-  bio: 'Socialist and teacher-in-training.'
+  address: 'Southampton',
+  bio: 'Socialist and teacher-in-training.',
+  picture: 'https://kitt.lewagon.com/placeholder/users/2'
   },
   {
   first_name: 'Lucas',
   last_name: 'Salaun',
   email: 'lucas@nationall.eu',
   password: 'password',
-  city: 'Vienna',
-  bio: 'Percussionist in Vienna, regularly with: Vienna Philharmonic, Vienna state and popular opera, the Vienna Tonkünstler orchestra…Member of Louie’s Cage Percussion.'
+  address: 'Vienna',
+  bio: 'Percussionist in Vienna, regularly with: Vienna Philharmonic, Vienna state and popular opera, the Vienna Tonkünstler orchestra…Member of Louie’s Cage Percussion.',
+  picture: 'https://kitt.lewagon.com/placeholder/users/3'
   },
   {
   first_name: 'India',
   last_name: 'Doyle',
   email: 'adam@nationall.eu',
   password: 'password',
-  city: 'Athens',
-  bio: 'India is Fashion Editor at @CultureTrip, an Editor of The Omnivore & Online @twin_magazine'
+  address: 'Athens',
+  bio: 'India is Fashion Editor at @CultureTrip, an Editor of The Omnivore & Online @twin_magazine',
+  picture: 'https://kitt.lewagon.com/placeholder/users/4'
   }])
 p users
 p 'users created'
