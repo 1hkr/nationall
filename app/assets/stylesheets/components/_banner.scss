@@ -1,4 +1,3 @@
-import Typed from 'typed.js';
 
 .banner {
   color: white;
@@ -13,10 +12,6 @@ import Typed from 'typed.js';
 }
 
 // transition property is always used with transform property.
-.banner:hover {
-  transform: scale(1.05);
-  transition-duration: 0.5s;
-}
 
 .banner h1 {
   font-size: 50px;
