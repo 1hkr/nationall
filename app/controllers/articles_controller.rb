@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
         lng: user.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
+    end
     if params[:query].present?
       @articles = policy_scope(Article).where("title ILIKE ?", "%#{params[:query]}%")
     else
