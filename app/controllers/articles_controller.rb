@@ -6,7 +6,15 @@ class ArticlesController < ApplicationController
     @markers = @users.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude#,
+        lng: user.longitude,
+        icon: {
+          url: user.picture, #
+          scaledSize: {
+            height: 50,
+            width: 50
+          }
+        },
+        title: 'avatar'
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
