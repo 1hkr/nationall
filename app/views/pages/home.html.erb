@@ -12,16 +12,37 @@
 
   <br>
 
-  <h4 class="articles-header">Latest Articles</h4>
+  <div class="row home-latest">
+    <h2 class="articles-header">Latest articles</h2>
     <% @articles.each do |article| %>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.picture %>);">
-           <img class=“card-user” src=“https://kitt.lewagon.com/placeholder/users/tgenaitay“>
+        <div class="card-container">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= article.picture %>);">
+          </div>
+          <div class="card-text">
+            <div class="card-details">
+              <p> <%= article.category.upcase %></p>
+              <p class="top-right"><%= article.publishing_date %></p>
+            </div>
+            <div class="card-titles">
+              <h5><%= link_to article.title, article_path(article) %></h5>
+              <p><%= truncate(article.subtitle, length: 40) %></p>
+            </div>
+            <div class="card-profile">
+              <div class="center">
+                <img class="card-user" src=<%= article.user.picture %>>
+              </div>
+              <div class="user-details">
+                <div>
+                  <p> <%= article.user.first_name%> <%= article.user.last_name %></p>
+                </div>
+                <div>
+                  <p class="grow"> <%= article.user.address %></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-         <p> <%= article.category.upcase %></p>
-         <h5><%= link_to article.title, article_path(article) %></h5>
-         <p><%= truncate(article.subtitle, length: 40) %></p>
-         <p><%= article.publishing_date %></p>
       </div>
     <% end %>
-</div>
+  </div>
