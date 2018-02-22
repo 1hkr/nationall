@@ -8,10 +8,11 @@
         <p> <%= @article.category.upcase %></p>
         <p class="top-right"><%= @article.publishing_date %></p>
       </div>
-      <h1><%= @article.title %></h1>
-      <h5><%= @article.subtitle %></h5>
-      <h3>Summary</h3>
-      <p> <%= @article.summary %></p>
+
+        <h1><%= @article.title %></h1>
+        <h5><%= @article.subtitle %></h5>
+        <h3>Summary</h3>
+        <p> <%= @article.summary %></p>
 
       <div class="article-profile">
         <div class="center">
@@ -26,19 +27,53 @@
           </div>
         </div>
       </div>
+      <div>
+        <h3>Chosen project</h3>
+        <img class="card-user" src=<%= @article.project.picture %>>
+        <%= link_to @article.project.name, @article.project %>
+      </div>
     </div>
+
     <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
+
       <div class="article-content">
         <h3>Full article</h3>
         <p><%= raw @article.content %></p>
+        <h3>Review</h3>
+
+        <%= simple_form_for [@article, @review] do |f| %>
+        <%= f.collection_radio_buttons :rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+        <%= b.radio_button + b.label {''} %>
+        <% end %>
+        <%= f.input :comment, placeholder: "Your review." %>
+        <%= f.submit "Submit Review", class: "btn-blue" %>
+        <% end %>
       </div>
+
     <% end %>
 
+    <hr>
+
+    <% if @reviews.exists? %>
+      <div class="reviews">
+        <div class="review">
+          <h3>Reviews</h3>
+          <% @reviews.each do |review| %>
+          <img class="card-user" src=<%= review.user.picture %>>
+          <p>By <%= review.user.first_name %></p>
+          <p><%= review.rating %>stars</p>
+          <p><%= review.comment %></p>
+          <hr>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
     <div class="buttons">
-      <%= link_to "Back", root_path, class: "btn-gray" %>
+      <%= link_to "Back", articles_path, class: "btn-gray" %>
     </div>
 
     <div class="buttons">
+
       <% if policy(@article).edit? %>
         <%= link_to "Edit", edit_article_path(@article), class: "btn-gray" %>
       <% end %>
@@ -46,26 +81,36 @@
       <% if policy(@article).destroy? %>
         <%= link_to "Delete", article_path(@article), class: "btn-gray", method: :delete, data: { confirm: "Are you sure?"} %>
       <% end %>
+
     </div>
 
   </div>
 
   <div class="col-xs-5 col-md-5 col-sm-5">
+
     <% if donation = Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
-    <h3>Donation</h3>
-    <p><%= donation.amount %>€</p>
-    <a href="#", class= "btn-blue-empty">Donation done</a>
-    <h5> Thank you for your donation ! </h5>
+
+      <h3>Donation</h3>
+      <p><%= donation.amount %>€</p>
+      <a href="#", class= "btn-blue-empty">Donation done</a>
+      <h5> Thank you for your donation ! </h5>
+
     <% else %>
+
     <div>
       <h3>Donation</h3>
+      <p>For <%= @article.project.name %></p>
       <%= simple_form_for [@article, @donation] do |f| %>
       <%= f.input :amount, placeholder: "0.10" %>
       <%= f.submit "Donate", class: "btn-blue" %>
       <% end %>
+
     </div>
+
     <% end %>
+
   </div>
+
 </div>
 
 

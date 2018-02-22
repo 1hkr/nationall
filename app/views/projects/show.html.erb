@@ -1,0 +1,32 @@
+<div class="project-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @project.picture %>);">
+</div>
+
+<div class="row margin-left">
+  <div class="col-xs-7 col-md-7 col-sm-7">
+    <div class="project-text margins">
+      <h1><%= @project.name %></h1>
+      <p> <%= @project.description %></p>
+      <%= link_to @project.url %>
+      <p> <%= @project.picture %></p>
+    </div>
+
+    <div class="buttons">
+      <%= link_to "Back", root_path, class: "btn-gray" %>
+    </div>
+
+    <div class="buttons">
+      <% if policy(@project).edit? %>
+        <%= link_to "Edit", edit_project_path(@project), class: "btn-gray" %>
+      <% end %>
+
+      <% if policy(@project).destroy? %>
+        <%= link_to "Delete", project_path(@project), class: "btn-gray", method: :delete, data: { confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+
+  </div>
+
+
+</div>
+
+
