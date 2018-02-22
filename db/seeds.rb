@@ -444,3 +444,27 @@ Unicorn Forum and Founders Forum believe the creation of a new Startup Single Ma
   }])
 p projects
 p 'projects created'
+
+
+p 'creating reviews'
+  reviews = Review.create([{
+  rating: 4,
+  user_id: User.all.sample.id,
+  article_id: Article.all.sample.id
+  },
+  {
+  title: 'It made me think',
+  rating: 3,
+  comment: 'Great thinking man',
+  user_id: 'User.all.sample.id',
+  article_id: Article.all.sample.id
+  },
+  {
+  title: 'Bad article',
+  rating: 1,
+  comment: 'Really don\'t buy this article',
+  user_id: User.all.sample.id,
+  article_id: Article.all.sample.id
+  }])
+p reviews
+p 'reviews created'
