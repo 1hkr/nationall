@@ -415,3 +415,32 @@ publishing_date: Date.parse("2017-06-19")
 
 p articles
 p 'finished'
+
+
+p 'creating projects'
+  projects = Project.create([{
+  name: 'Making Europe Again',
+  description: 'Making Europe Again (MEA) is a Non-Governmental Organisation, a non-profit devoted to bringing the European Project back to life, to promote our rich and diverse cultures and a stronger sense of community among us Europeans.',
+  picture: 'https://i0.wp.com/www.makingeuropeagain.eu/wp-content/uploads/2016/06/Background_Project.001.jpeg?fit=1920%2C1080&ssl=1%22)',
+  url: 'https://www.makingeuropeagain.eu/notre-projet%E2%80%8A-%E2%80%8Afr/'
+  },
+  {
+  name: 'Single Startup Market',
+  description: 'Europe has a potential market of 500 million customers but European entrepreneurs can’t take full advantage of its potential, because of fragmentation in the various member state jurisdictions. The effort from the Commission and member states to harmonize European legislation must continue. We at the Unicorn Forum and Founders Forum believe radical policy action must be taken to bring to scale the European startup ecosystem, and today are calling for a Single Startup Market, with support from some of the world’s most influential startup founders.
+
+The objective is to create a single legal framework for qualified startups with standard rules across countries within the European Community. A special corporate regime accessible to qualified startups would facilitate a unique, simple and competitive legal framework for corporate, labour, tax/fiscal incentives, stock options, bankruptcy matters. Starting a business and operating across multiple different European countries should be as simple as it is to operate in a single country.
+
+National policy makers, at present, have no sufficient incentives to harmonise their regulations toward a single market for European startups. A single legal framework will bring agility and easier cross contamination for European startups, making the overall innovation ecosystem stronger, bigger and more attractive for investors.
+
+Unicorn Forum and Founders Forum believe the creation of a new Startup Single Market should be a simple, digital, standalone fully-fledged corporate legal environment. Similar initiatives have been taken or have been under discussion in Italy, UK, Germany and France. It is time to make this a reality and create a single competitive environment to boost entrepreneurship, competitiveness, scalability and job formation in Europe.',
+  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
+  url: 'http://www.singlestartupmarket.eu/'
+  },
+  {
+  name: 'Kolos',
+  description: 'The most secure, efficient and innovative data center in the world, powered by 100% renewable energy',
+  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
+  url: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png'
+  }])
+p projects
+p 'projects created'
