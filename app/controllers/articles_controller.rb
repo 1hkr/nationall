@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def show
     @donation = Donation.new
     @review = Review.new
-    @reviews = Review.all
+    @reviews = Review.where(article: @article)
     authorize @donation
   end
 
