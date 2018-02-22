@@ -2,7 +2,7 @@ var defaults = {
         theme: 'snow',
         modules: {
             toolbar: [
-                [{ 'header': [1, 2, 3, false] }],
+                [{ 'header': [2, 3, false] }],
                 [{ 'color': [] }, { 'background': [] }],
                 ['bold', 'italic', 'underline', 'strike'],
                 ['blockquote', 'code-block'],
