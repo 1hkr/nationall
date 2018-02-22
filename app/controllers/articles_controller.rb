@@ -29,6 +29,8 @@ class ArticlesController < ApplicationController
 
   def show
     @donation = Donation.new
+    @review = Review.new
+    @reviews = Review.all
     authorize @donation
   end
 
