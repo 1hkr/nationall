@@ -2,7 +2,7 @@
   <%= f.input :title, placeholder: "Enter the title." %>
   <%= f.input :subtitle, placeholder: "Enter the subtitle."%>
   <%= f.input :summary, placeholder: "Enter the summary." %>
-  <%= f.input :content, placeholder: "Enter the content." %>
+  <%= f.input :content, placeholder: "Enter the content.", input_html: { class: 'quill_container' }%>
   <%= f.input :picture, placeholder: "test" %>
   <%= f.input :category, placeholder: "Enter the category." %>
   <%= f.button :submit, class: "btn btn-primary"  %>

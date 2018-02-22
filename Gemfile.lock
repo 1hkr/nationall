@@ -101,6 +101,7 @@ GEM
     puma (3.11.2)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    quilljs-rails (0.0.4)
     rack (2.0.4)
     rack-proxy (0.6.3)
       rack
@@ -202,6 +203,7 @@ DEPENDENCIES
   pry-rails
   puma
   pundit
+  quilljs-rails
   rails (= 5.1.5)
   redis
   sass-rails

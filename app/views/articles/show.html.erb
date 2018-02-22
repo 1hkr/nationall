@@ -30,7 +30,7 @@
     <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
       <div class="article-content">
         <h3>Full article</h3>
-        <p><%= @article.content %></p>
+        <p><%= raw @article.content %></p>
       </div>
     <% end %>
 
