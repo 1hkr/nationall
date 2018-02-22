@@ -27,6 +27,11 @@
           </div>
         </div>
       </div>
+      <div>
+        <h3>Chosen project</h3>
+        <img class="card-user" src=<%= @article.project.picture %>>
+        <%= link_to @article.project.name, @article.project %>
+      </div>
     </div>
 
     <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
@@ -87,7 +92,7 @@
 
     <div>
       <h3>Donation</h3>
-
+      <p>For <%= @article.project.name %></p>
       <%= simple_form_for [@article, @donation] do |f| %>
       <%= f.input :amount, placeholder: "0.10" %>
       <%= f.submit "Donate", class: "btn-blue" %>
