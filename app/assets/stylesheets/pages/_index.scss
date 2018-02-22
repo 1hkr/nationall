@@ -1,24 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "articles/_show";
-
-
+@import "articles/_all";
+@import "articles/_new";
 @import "projects/_show";
-
-h5 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-}
-
-h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-}
-
-p {
-  font-family: 'Open Sans', sans-serif;
-}
-
-input {
-  font-family: 'Open Sans', sans-serif;
-}

@@ -1,10 +1,10 @@
 <%= simple_form_for(@article) do |f| %>
-  <%= f.input :title, placeholder: "Enter the title." %>
-  <%= f.input :subtitle, placeholder: "Enter the subtitle."%>
-  <%= f.input :summary, placeholder: "Enter the summary." %>
-  <%= f.input :content, placeholder: "Enter the content." %>
-  <%= f.input :picture, placeholder: "test" %>
-  <%= f.input :category, placeholder: "Enter the category." %>
+  <%= f.input :title, placeholder: "Title", label: false, input_html: { class: 'form_light no_border form_title' } %>
+  <%= f.input :subtitle, placeholder: "Subtitle", label: false, input_html: { class: 'form_light no_border form_subtitle' }%>
+  <%= f.input :content, placeholder: "Enter the content.", label: false, input_html: { class: 'quill_container' }%>
+  <%= f.input :summary, placeholder: "Summary", label: false, input_html: { class: 'form_light no_border' } %>
+  <%= f.input :picture, placeholder: "Picture's HTML", label: false, input_html: { class: 'form_light no_border' } %>
+  <%= f.input :category, placeholder: "Category", label: false, input_html: { class: 'form_light no_border' }%>
   <%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>
 

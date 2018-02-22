@@ -38,8 +38,7 @@
 
       <div class="article-content">
         <h3>Full article</h3>
-        <p><%= @article.content %></p>
-
+        <p><%= raw @article.content %></p>
         <h3>Review</h3>
 
         <%= simple_form_for [@article, @review] do |f| %>
