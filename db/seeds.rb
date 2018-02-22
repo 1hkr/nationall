@@ -459,8 +459,6 @@ p articles
 p 'finished'
 
 
-
-
 p 'creating reviews'
   reviews = Review.create([{
   rating: 4,
@@ -471,7 +469,7 @@ p 'creating reviews'
   title: 'It made me think',
   rating: 3,
   comment: 'Great thinking man',
-  user_id: 'User.all.sample.id',
+  user_id: User.all.sample.id,
   article_id: Article.all.sample.id
   },
   {
