@@ -9,6 +9,10 @@ Article.destroy_all
 p 'articles destroyed'
 User.destroy_all
 p 'users destroyed'
+Project.destroy_all
+p 'projects destroyed'
+Review.destroy_all
+p 'reviews destroyed'
 
 p 'creating users'
   users = User.create([{
@@ -50,6 +54,35 @@ p 'creating users'
 p users
 p 'users created'
 
+p 'creating projects'
+  projects = Project.create([{
+  name: 'Making Europe Again',
+  description: 'Making Europe Again (MEA) is a Non-Governmental Organisation, a non-profit devoted to bringing the European Project back to life, to promote our rich and diverse cultures and a stronger sense of community among us Europeans.',
+  picture: "https://cdn-az.allevents.in/banners/2045e074f6206d042279b93f00faeebc",
+  url: 'https://www.makingeuropeagain.eu/'
+  },
+  {
+  name: 'Single Startup Market',
+  description: 'Europe has a potential market of 500 million customers but European entrepreneurs can’t take full advantage of its potential, because of fragmentation in the various member state jurisdictions. The effort from the Commission and member states to harmonize European legislation must continue. We at the Unicorn Forum and Founders Forum believe radical policy action must be taken to bring to scale the European startup ecosystem, and today are calling for a Single Startup Market, with support from some of the world’s most influential startup founders.
+
+The objective is to create a single legal framework for qualified startups with standard rules across countries within the European Community. A special corporate regime accessible to qualified startups would facilitate a unique, simple and competitive legal framework for corporate, labour, tax/fiscal incentives, stock options, bankruptcy matters. Starting a business and operating across multiple different European countries should be as simple as it is to operate in a single country.
+
+National policy makers, at present, have no sufficient incentives to harmonise their regulations toward a single market for European startups. A single legal framework will bring agility and easier cross contamination for European startups, making the overall innovation ecosystem stronger, bigger and more attractive for investors.
+
+Unicorn Forum and Founders Forum believe the creation of a new Startup Single Market should be a simple, digital, standalone fully-fledged corporate legal environment. Similar initiatives have been taken or have been under discussion in Italy, UK, Germany and France. It is time to make this a reality and create a single competitive environment to boost entrepreneurship, competitiveness, scalability and job formation in Europe.',
+  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
+  url: 'http://www.singlestartupmarket.eu/'
+  },
+  {
+  name: 'Kolos',
+  description: 'The most secure, efficient and innovative data center in the world, powered by 100% renewable energy',
+  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
+  url: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png'
+  }])
+p projects
+p 'projects created'
+
+
 articles = Article.create([{
   title: "Blockchain: Crypto-Catalonia",
   subtitle: "How Catalonia woudn't need the Euro",
@@ -81,7 +114,8 @@ Catalonian markets should make major moves in Blockchain technology to secure th
   picture: 'https://cdn-images-1.medium.com/max/1600/1*1Kjxg36-D3pOVMgu8H2TCA.jpeg',
   category: "politics",
   user_id: User.all.sample.id,
-  publishing_date: Date.parse("2017-11-13")
+  publishing_date: Date.parse("2017-11-13"),
+  project_id: Project.all.sample.id
   },
   {
   title: "The Story of a Collaborative Referendum",
@@ -142,7 +176,8 @@ Puigdemont appeared on television announcing that the Spanish government had def
   picture: 'https://cdn-images-1.medium.com/max/1600/1*Rcd_eS4KAwMtUB-F30I2RA.jpeg',
   category: "politics",
   user_id: User.all.sample.id,
-  publishing_date: Date.parse("2017-11-08")
+  publishing_date: Date.parse("2017-11-08"),
+  project_id: Project.all.sample.id
   },
   {
   title: "A Forgotten Greece: The Pomakochoria",
@@ -175,7 +210,8 @@ Although Pomak, known in Greek as Pomakika, is not the language spoken at home i
 picture: 'https://cdn-images-1.medium.com/max/2000/1*NTaK3agsNiPvJ2San_3FQQ.jpeg',
 category: "culture",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-10-09")
+publishing_date: Date.parse("2017-10-09"),
+project_id: Project.all.sample.id
 },
 {
 title: "Is Brussels courting the idea of reversing the referendum result?",
@@ -214,7 +250,8 @@ But it will be interesting to watch what manoeuvres the three Remainers and thei
 picture: 'https://cdn-images-1.medium.com/max/1600/1*nxJF8P4hUJuw2WQzuN7Ryg.jpeg',
 category: "politics",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-10-30")
+publishing_date: Date.parse("2017-10-30"),
+project_id: Project.all.sample.id
 },
 {
 title: "E. Macron’s plans to break nations’ borders.",
@@ -291,7 +328,8 @@ The possibility for the UK to come back once the renovations will be over in 202
 picture: 'https://cdn-images-1.medium.com/max/2000/1*17DLR3Zxj76Pg7zEQ2dKqQ.jpeg',
 category: "politics",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-10-03")
+publishing_date: Date.parse("2017-10-03"),
+project_id: Project.all.sample.id
 },
 {
 title: "Austrian recipe: Kaiserschmarn",
@@ -321,7 +359,8 @@ Enjoy your meal !!",
 picture: 'https://cdn-images-1.medium.com/max/2000/1*UfX1V7aOGGbbw6H0xtWnbg.jpeg',
 category: "food",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-09-24")
+publishing_date: Date.parse("2017-09-24"),
+project_id: Project.all.sample.id
 },
 {
 title: "Greece’s Odyssey for Sustainable Fashion",
@@ -363,7 +402,8 @@ Thus the Greek fashion industry finds itself in an exciting position, at a time 
 picture: 'https://cdn-images-1.medium.com/max/2000/1*mCAeFNv4Z4tVo7sHeHroog.jpeg',
 category: "food",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-05-08")
+publishing_date: Date.parse("2017-05-08"),
+project_id: Project.all.sample.id
 },
 {
 title: "Why is the Left losing in Germany?",
@@ -388,7 +428,8 @@ This defeat, or “credibility issue” , can’t be fixed even by the most perf
 picture: 'https://cdn-images-1.medium.com/max/2000/1*nayF5UYd_eGNiWdo_fmNGg.jpeg',
 category: "politics",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-09-26")
+publishing_date: Date.parse("2017-09-26"),
+project_id: Project.all.sample.id
 },
 {
 title: "NEWS TO BREAK BORDERS",
@@ -410,40 +451,14 @@ Alex & Romain",
 picture: 'https://cdn-images-1.medium.com/max/2000/1*Y1Vu1aEHUAQgXQEBoebsEA.png',
 category: "europe",
 user_id: User.all.sample.id,
-publishing_date: Date.parse("2017-06-19")
+publishing_date: Date.parse("2017-06-19"),
+project_id: Project.all.sample.id
 }])
 
 p articles
 p 'finished'
 
 
-p 'creating projects'
-  projects = Project.create([{
-  name: 'Making Europe Again',
-  description: 'Making Europe Again (MEA) is a Non-Governmental Organisation, a non-profit devoted to bringing the European Project back to life, to promote our rich and diverse cultures and a stronger sense of community among us Europeans.',
-  picture: 'https://i0.wp.com/www.makingeuropeagain.eu/wp-content/uploads/2016/06/Background_Project.001.jpeg?fit=1920%2C1080&ssl=1%22)',
-  url: 'https://www.makingeuropeagain.eu/notre-projet%E2%80%8A-%E2%80%8Afr/'
-  },
-  {
-  name: 'Single Startup Market',
-  description: 'Europe has a potential market of 500 million customers but European entrepreneurs can’t take full advantage of its potential, because of fragmentation in the various member state jurisdictions. The effort from the Commission and member states to harmonize European legislation must continue. We at the Unicorn Forum and Founders Forum believe radical policy action must be taken to bring to scale the European startup ecosystem, and today are calling for a Single Startup Market, with support from some of the world’s most influential startup founders.
-
-The objective is to create a single legal framework for qualified startups with standard rules across countries within the European Community. A special corporate regime accessible to qualified startups would facilitate a unique, simple and competitive legal framework for corporate, labour, tax/fiscal incentives, stock options, bankruptcy matters. Starting a business and operating across multiple different European countries should be as simple as it is to operate in a single country.
-
-National policy makers, at present, have no sufficient incentives to harmonise their regulations toward a single market for European startups. A single legal framework will bring agility and easier cross contamination for European startups, making the overall innovation ecosystem stronger, bigger and more attractive for investors.
-
-Unicorn Forum and Founders Forum believe the creation of a new Startup Single Market should be a simple, digital, standalone fully-fledged corporate legal environment. Similar initiatives have been taken or have been under discussion in Italy, UK, Germany and France. It is time to make this a reality and create a single competitive environment to boost entrepreneurship, competitiveness, scalability and job formation in Europe.',
-  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
-  url: 'http://www.singlestartupmarket.eu/'
-  },
-  {
-  name: 'Kolos',
-  description: 'The most secure, efficient and innovative data center in the world, powered by 100% renewable energy',
-  picture: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png',
-  url: 'http://www.eu-startups.com/wp-content/uploads/2016/06/Single-Startup-market.png'
-  }])
-p projects
-p 'projects created'
 
 
 p 'creating reviews'
