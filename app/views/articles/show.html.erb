@@ -39,28 +39,36 @@
       <div class="article-content">
         <h3>Full article</h3>
         <p><%= @article.content %></p>
+
+        <h3>Review</h3>
+
+        <%= simple_form_for [@article, @review] do |f| %>
+        <%= f.collection_radio_buttons :rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+        <%= b.radio_button + b.label {''} %>
+        <% end %>
+        <%= f.input :comment, placeholder: "Your review." %>
+        <%= f.submit "Submit Review", class: "btn-blue" %>
+        <% end %>
       </div>
 
     <% end %>
 
     <hr>
 
+    <% if @reviews.exists? %>
       <div class="reviews">
         <div class="review">
-
           <h3>Reviews</h3>
-
           <% @reviews.each do |review| %>
-          <p><%= review.user.first_name %></p>
-          <p><%= review.rating %></p>
+          <img class="card-user" src=<%= review.user.picture %>>
+          <p>By <%= review.user.first_name %></p>
+          <p><%= review.rating %>stars</p>
           <p><%= review.comment %></p>
-
           <hr>
-
           <% end %>
         </div>
       </div>
-
+    <% end %>
     <div class="buttons">
       <%= link_to "Back", articles_path, class: "btn-gray" %>
     </div>
@@ -102,33 +110,6 @@
 
     <% end %>
 
-  </div>
-
-  <div class="col-xs-5 col-md-5 col-sm-5">
-
-    <% if donation = Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
-
-      <h3>Add Review</h3>
-      <a href="#", class= "btn-blue-empty">Review Submitted</a>
-      <h5> Thank you for your review ! </h5>
-
-    <% else %>
-
-    <div>
-
-      <h3>Review</h3>
-
-      <%= simple_form_for [@article, @review] do |f| %>
-      <%= f.collection_radio_buttons :rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
-      <%= b.radio_button + b.label {''} %>
-      <% end %>
-      <%= f.input :comment, placeholder: "Your review." %>
-      <%= f.submit "Submit Review", class: "btn-blue" %>
-      <% end %>
-
-    </div>
-
-    <% end %>
   </div>
 
 </div>
