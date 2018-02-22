@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
+
     if params[:query].present?
       @articles = policy_scope(Article).where("title ILIKE ?", "%#{params[:query]}%")
     else
@@ -43,6 +44,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     authorize @article
+
     if @article.save
       redirect_to articles_path, notice: 'Article was successfully created.'
     else
@@ -56,6 +58,7 @@ class ArticlesController < ApplicationController
 
   def update
     authorize @article
+
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else

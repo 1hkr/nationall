@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
-
   before_action :set_article, only: [:create]
-
 
   def create
     @donation = Donation.new
@@ -10,10 +8,13 @@ class ReviewsController < ApplicationController
     @review.article = @article # assignment in order to associate article with review
     @review.user = current_user
     authorize @review
+
     if @review.save
       redirect_to article_path(@article), notice: 'Review was successfully created.'
     else
-      render 'articles/show', article: @article, reviews: @reviews, donation: @donation# render goes to View folder by default
+      render 'articles/show', article: @article, reviews: @reviews, donation: @donation
+      # render goes to View folder by default
+      # should render the view with specific instances
     end
   end
 
@@ -26,5 +27,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :comment)
   end
-
 end
