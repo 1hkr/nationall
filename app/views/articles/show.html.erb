@@ -11,7 +11,9 @@
 
         <h1><%= @article.title %></h1>
         <h5><%= @article.subtitle %></h5>
-        <h3>Summary</h3>
+<hr>
+
+        <h4>Summary</h4>
         <p> <%= @article.summary %></p>
 
       <div class="article-profile">
@@ -28,7 +30,7 @@
         </div>
       </div>
       <div>
-        <h3>Chosen project</h3>
+        <h4>Chosen project</h4>
         <img class="card-user" src=<%= @article.project.picture %>>
         <%= link_to @article.project.name, @article.project %>
       </div>
@@ -37,9 +39,9 @@
     <% if Donation.find_by(user_id: current_user.id, article_id: @article.id) %>
 
       <div class="article-content">
-        <h3>Full article</h3>
+        <h4>Full article</h4>
         <p><%= raw @article.content %></p>
-        <h3>Review</h3>
+        <h4>Review</h4>
 
         <%= simple_form_for [@article, @review] do |f| %>
         <%= f.collection_radio_buttons :rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
