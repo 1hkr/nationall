@@ -36,10 +36,16 @@
   padding-left: 0;
 }
 
+.dropdown_wrapper {
+  margin-left: -8px;
+  opacity: 0.45;
+}
+
 .no_padding .form-control {
   padding-left: 0 !important;
 }
 
 .ql-editor {
-  padding: 12px 0px;
+  padding-left:0;
+  padding-bottom: 15%;
 }
