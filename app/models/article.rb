@@ -6,5 +6,6 @@ class Article < ApplicationRecord
   belongs_to :project
   validates :title, :subtitle, :summary, :content, :picture, :category, presence: true
   validates :summary, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }
-  validates :category, inclusion: { in: ["politics","culture","europe","food","fashion"]}
+  CATEGORIES = ["politics","culture","europe","food","fashion"]
+  validates :category, inclusion: { in: CATEGORIES}
 end

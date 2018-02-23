@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @users = User.where.not(latitude: nil, longitude: nil)
     @markers = @users.map do |user|
