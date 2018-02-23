@@ -5,12 +5,13 @@
 
 .article-profile {
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
   .user-details {
     display: flex;
     flex-direction: column;
     line-height: 8px;
-    margin-left: 10px;
+    margin-left: 15px;
+    margin-top: 5px;
     .grow {
       flex: 1 0 50px;
     }
@@ -18,7 +19,7 @@
 }
 
 .card-details {
- font-size: 12px;
+ font-size: 14px;
 }
 
 .margins {
