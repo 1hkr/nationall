@@ -1,0 +1,11 @@
+.horizontal-card {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  .grow {
+    flex: 1 0 50px;
+  }
+  .card {
+    width: 200px;
+  }
+}

@@ -11,7 +11,9 @@
 
         <h1><%= @article.title %></h1>
         <h5><%= @article.subtitle %></h5>
-        <h3>Summary</h3>
+<hr>
+
+        <h4>Summary</h4>
         <p> <%= @article.summary %></p>
 
       <div class="article-profile">
@@ -35,7 +37,8 @@
 
       <div>
 
-        <h3>Chosen project</h3>
+        <h4>Chosen project</h4>
+
         <img class="card-user" src=<%= @article.project.picture %>>
         <%= link_to @article.project.name, @article.project %>
 
@@ -47,9 +50,10 @@
 
       <div class="article-content">
 
-        <h3>Full article</h3>
+        <h4>Full article</h4>
+
         <p><%= raw @article.content %></p>
-        <h3>Review</h3>
+        <h4>Review</h4>
 
           <div class="rating">
             <i class="fa fa-star star-input" data-rating="1"></i>
