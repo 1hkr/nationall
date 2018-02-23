@@ -1,1 +1,25 @@
-index.html.erb
+<div class="container-fluid">
+
+  <div class="row margin-left">
+
+    <h1>Projects</h1>
+
+    <div class="col-xs-7 col-sm-7">
+    <% @projects.each do |project| %>
+      <div class="horizontal-card card-container">
+        <div>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= project.picture %>);">
+          </div>
+        </div>
+        <div class="card-text grow">
+          <div class="card-titles">
+            <h5><%= link_to project.name, project_path(project) %></h5>
+            <p><%= truncate(project.description, length: 150) %></p>
+            <%= link_to "Link to the project website", project.url %>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
